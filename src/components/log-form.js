@@ -8,10 +8,6 @@ export default function Logform() {
     <div> 
       <form>
         <div>
-          <label for="experienced">Experienced?</label>
-          <input type="checkbox" id="experienced" name="experienced" value="1"></input>
-        </div>
-        <div>
           <label for="level">Level 1-10</label>
           <input type="number" id="level" name=""></input>
         </div>
@@ -28,7 +24,7 @@ export default function Logform() {
           <label for="impact-notes">Impact Notes</label>
           <textarea id="impact-notes" name="impact-notes"></textarea>
         </div>
-          <label for="symptom-notes">Syptom Notes</label>
+          <label for="symptom-notes">Symptom Notes</label>
           <textarea id="symptom-notes" name="symptom-notes"></textarea>
         <div>
           <label for="success-notes">Success Notes</label>
@@ -39,5 +35,5 @@ export default function Logform() {
         </div>
       </form>
     </div>
-);
+  );
 }
