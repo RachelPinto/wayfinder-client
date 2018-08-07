@@ -3,6 +3,8 @@ import React from 'react';
 
 import './styles/log-form.css';
 
+import { Link } from 'react-router-dom';
+
 export default function Logform() {
   return (
     <div> 
@@ -31,7 +33,14 @@ export default function Logform() {
           <textarea id="success-notes" name="success-notes"></textarea>
         </div>
         <div>
+        <Link to="/show-data">
           <button type="submit">Submit log</button>
+        </Link>
+        </div>
+        <div>
+        <Link to="/">
+          <button type="submit">Home</button>
+        </Link>
         </div>
       </form>
     </div>
