@@ -16,9 +16,9 @@ export default function Showdata() {
       </div>
       <div>
         <ul>
-          <li onclick="" id="" >7/15</li>
-          <li onclick="" id="" >7/14</li>
-          <li onclick="" id="" >7/13</li>
+          <li onClick="" id="" >7/15</li>
+          <li onClick="" id="" >7/14</li>
+          <li onClick="" id="" >7/13</li>
         </ul>
       </div>
     </div>

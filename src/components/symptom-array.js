@@ -12,30 +12,29 @@ export default function Symptomarray() {
         <Link to="/log-form">
           <button>Symptom 1</button>
         </Link>
-          <label for="experienced">Experienced?</label>
-          <Link to="/show-data">
+          <label htmlFor="experienced">Experienced?</label>
+
           <input type="checkbox" id="experienced" name="experienced" value="1"></input>
-          </Link>
+
         </div>
         <div>
         <Link to="/log-form">
           <button>Symptom 2</button>
         </Link>
-          <label for="experienced">Experienced?</label>
-          <Link to="/show-data">
+          <label htmlFor="experienced">Experienced?</label>
+
           <input type="checkbox" id="experienced" name="experienced" value="1"></input>
-          </Link>
+
         </div>
         <div>
         <Link to="/log-form">
           <button>Symptom 3</button>
         </Link>
-          <label for="experienced">Experienced?</label>
-          <Link to="/show-data">
+          <label htmlFor="experienced">Experienced?</label>
+
           <input type="checkbox" id="experienced" name="experienced" value="1"></input>
-          </Link>
-        </div>
-        
+
+        </div>       
       </div>
   );
 };
