@@ -11,7 +11,7 @@ import { connect } from 'react-redux'
 //implement log in and sign up first - with token, save in local storage.
 //use another async action in list to fetch all the records for that specfic user
 //when you log in the user will generate a token, with that token you can query other endpoints (GET records and POST records)
-//*add disclaimer
+
 
 export class Logform extends React.Component {
   constructor(props) {
@@ -25,6 +25,8 @@ export class Logform extends React.Component {
   onSubmit(event) {
     event.preventDefault();
     let formData = {
+      //symptom: event.currentTarget.symptom.value,
+      //experience: event.currentTarget.experience.value,
       level: event.currentTarget.level.value,
       impact: event.currentTarget.impacts.value,
       impactNote: event.currentTarget['impact-notes'].value,
