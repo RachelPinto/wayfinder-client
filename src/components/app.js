@@ -12,7 +12,6 @@ import {refreshAuthToken} from '../actions/auth';
 
 import {connect} from 'react-redux';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import {withRouter} from 'react-router-dom';
 
 export class App extends React.Component {
 
@@ -69,4 +68,4 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
   });
 
-  export default withRouter(connect(mapStateToProps)(App));
+  export default connect(mapStateToProps)(App);

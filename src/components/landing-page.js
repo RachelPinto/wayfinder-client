@@ -15,7 +15,7 @@ export function LandingPage(props) {
             <h2>Wayfinder</h2>
             <p>A mental wellness toolkit</p>
             <LoginForm />
-            <Link to="/createuser">Create a new account</Link>
+            <Link to="/newuser">Create a new account</Link>
         </div>
     );
 }

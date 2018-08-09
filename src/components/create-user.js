@@ -1,22 +1,22 @@
-import React from '../../../../Library/Caches/typescript/2.9/node_modules/@types/react';
-import {connect} from '../../../../Library/Caches/typescript/2.9/node_modules/@types/react-redux';
-import {Link, Redirect} from '../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router-dom';
+import React from 'react';
+import {connect} from 'react-redux';
+import {Link, Redirect} from 'react-router-dom';
 
-import createUserForm from './create-user-form';
+import CreateUserForm from './create-user-form';
 
 import './styles/create-user.css';
 
 
 export function CreateUserPage(props) {
-    // // If we are logged in (which happens automatically when registration
-    // // is successful) redirect to the user's dashboard
+    // If we are logged in (which happens automatically when registration
+    // is successful) redirect to the user's dashboard
     // if (props.loggedIn) {
     //     return <Redirect to="/dashboard" />;
     // }
     return (
         <div>
             <h2>Create User</h2>
-            <CreateUserPage />
+            <CreateUserForm/>
             <Link to="/">Login</Link>
         </div>
     );

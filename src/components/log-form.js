@@ -1,11 +1,11 @@
 
-import React from '../../../../Library/Caches/typescript/2.9/node_modules/@types/react';
+import React from 'react';
 
 import './styles/log-form.css';
 
-import { Link } from '../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router-dom';
+import { Link } from 'react-router-dom';
 import { logForm } from '../actions'
-import { connect } from '../../../../Library/Caches/typescript/2.9/node_modules/@types/react-redux'
+import { connect } from 'react-redux'
 
 //async actions for submit button. perform post request to endpoint.
 //implement log in and sign up first - with token, save in local storage.

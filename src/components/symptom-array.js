@@ -1,10 +1,10 @@
-import React from '../../../../Library/Caches/typescript/2.9/node_modules/@types/react';
+import React from 'react';
 
 import './styles/symptom-array.css';
 
-import { Link } from '../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router-dom';
+import { Link } from 'react-router-dom';
 import { experiencedForm } from '../actions'
-import { connect } from '../../../../Library/Caches/typescript/2.9/node_modules/@types/react-redux'
+import { connect } from 'react-redux'
 
 export class Symptomarray extends React.Component {
   // constructor(props) {
