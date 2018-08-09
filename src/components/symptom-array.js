@@ -1,10 +1,10 @@
-import React from '../../../../Library/Caches/typescript/2.9/node_modules/@types/react';
+import React from 'react';
 
 import './styles/symptom-array.css';
 
-import { Link } from '../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router-dom';
+import { Link } from 'react-router-dom';
 import { experiencedForm } from '../actions'
-import { connect } from '../../../../Library/Caches/typescript/2.9/node_modules/@types/react-redux'
+import { connect } from 'react-redux'
 
 export class Symptomarray extends React.Component() {
   constructor(props) {
@@ -20,7 +20,7 @@ export class Symptomarray extends React.Component() {
     let experienceFormData = {
       experience: event.currentTarget.experience.value,
     }
-    this.props.dispatch(logForm(experienceFormData))
+    this.props.dispatch(experiencedForm(experienceFormData))
     console.log(experienceFormData)
   }
   render() {
@@ -32,14 +32,6 @@ export class Symptomarray extends React.Component() {
         <div>
           <Link to="/log-form">
             <button>Symptom 1</button>
-          </Link>
-          <label htmlFor="experienced">Experienced?</label>
-          <input type="checkbox" id="experienced" name="experienced" value="1"></input>
-        </div>
-
-        <div>
-          <Link to="/log-form">
-            <button>Symptom 2</button>
           </Link>
           <label htmlFor="experienced" onClick={(e) => this.onClick(e)}>Experienced?</label>
           <input type="checkbox" id="experienced" name="experienced" value="1"></input>
