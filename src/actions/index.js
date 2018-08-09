@@ -83,3 +83,46 @@ export const experiencedForm = (experiencedformData) => dispatch => {
   .then(res => dispatch(experiencedSuccess(res)))
   .catch(err => dispatch(experiencedError(err)))
 };
+
+//-------------------- show data action
+
+function showDataRequest() {
+  return {
+    type: 'showDataRequest'
+  }
+}
+
+function showDataSuccess(payload) {
+  return {
+    type: 'showDataSuccess',
+    payload: payload
+  }
+}
+
+function showDataError(err) {
+  return {
+    type: 'showDataError',
+    error: err
+  }
+}
+
+
+export const showData = (data) => dispatch => {
+  dispatch(showDataRequest())
+  return fetch(`${API_BASE_URL}/experience-records`, {
+    method:'GET',
+    body: JSON.stringify(data),
+    headers: {
+      'Accept':'application/json',
+      'Content-Type':'application/json'
+    }
+  })
+  .then(res => {
+    console.log(res)
+    if (res.ok) {
+      return res.json()
+    }
+  })
+  .then(res => dispatch(showDataSuccess(res)))
+  .catch(err => dispatch(showDataError(err)))
+};

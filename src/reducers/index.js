@@ -12,7 +12,7 @@ const initialState = {
 };
 
 export const wayfinderReducer = (state=initialState, action) => {
-
+//Log form
     if (action.type === 'logFormRequest') {
         return Object.assign({}, state, {loading:true})
     }
@@ -29,6 +29,7 @@ export const wayfinderReducer = (state=initialState, action) => {
         return Object.assign({}, state, {error: action.error})
     }
 
+//simple experience form
     if (action.type === 'experiencedRequest') {
         return Object.assign({}, state, {loading:true})
     }
@@ -44,6 +45,8 @@ export const wayfinderReducer = (state=initialState, action) => {
     if (action.type === 'experiencedError') {
         return Object.assign({}, state, {error: action.error})
     }
+//show data
+
 
     return state;
 };
