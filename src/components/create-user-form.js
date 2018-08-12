@@ -25,7 +25,7 @@ export class CreateUserForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-                <Field component={Input} type="text" name="lastName" />
+
                 <label htmlFor="username">Username</label>
                 <Field
                     component={Input}
