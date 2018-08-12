@@ -10,9 +10,9 @@ import './styles/create-user.css';
 export function CreateUserPage(props) {
     // If we are logged in (which happens automatically when registration
     // is successful) redirect to the user's dashboard
-    // if (props.loggedIn) {
-    //     return <Redirect to="/dashboard" />;
-    // }
+    if (props.loggedIn) {
+        return <Redirect to="/dashboard" />;
+    }
     return (
         <div>
             <h2>Create User</h2>

@@ -25,8 +25,6 @@ export class Logform extends React.Component {
   onSubmit(event) {
     event.preventDefault();
     let formData = {
-      //symptom: event.currentTarget.symptom.value,
-      //experience: event.currentTarget.experience.value,
       level: event.currentTarget.level.value,
       impact: event.currentTarget.impacts.value,
       impactNote: event.currentTarget['impact-notes'].value,

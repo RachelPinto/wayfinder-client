@@ -15,6 +15,7 @@ const store = createStore(
     form: formReducer,
     auth: authReducer,
     wayfinder: wayfinderReducer,
+    protectedData: protectedDataReducer
   }),
   composeWithDevTools(applyMiddleware(thunk))
 );

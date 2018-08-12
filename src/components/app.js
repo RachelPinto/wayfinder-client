@@ -5,13 +5,14 @@ import './styles/app.css';
 import Logform from './log-form';
 import Symptomarray from './symptom-array';
 import Showdata from './show-data';
+import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
+import Dashboard from './dashboard';
 import CreateUserPage from './create-user';
-import {refreshAuthToken} from '../actions/auth';
+import { refreshAuthToken } from '../actions/auth';
 
 
-import {connect} from 'react-redux';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 export class App extends React.Component {
 
@@ -24,48 +25,46 @@ export class App extends React.Component {
             this.stopPeriodicRefresh();
         }
     }
-  
+
     componentWillUnmount() {
         this.stopPeriodicRefresh();
     }
-  
+
     startPeriodicRefresh() {
         this.refreshInterval = setInterval(
             () => this.props.dispatch(refreshAuthToken()),
             60 * 60 * 1000 // One hour
         );
     }
-  
+
     stopPeriodicRefresh() {
         if (!this.refreshInterval) {
             return;
         }
-  
+
         clearInterval(this.refreshInterval);
     }
 
     render() {
-    return (
-        <Router>
-            <div>
-                <header>
-                </header>
-                <main>
-                    <Route exact path="/symptoms" component={ Symptomarray } />
-                    <Route exact path="/log-form" component={ Logform } />
-                    <Route exact path="/show-data" component={ Showdata } />
+        return (
+                <div>
+
+                    <HeaderBar />
+                    <Route exact path="/dashboard" component={Dashboard} />
+                    <Route exact path="/symptoms" component={Symptomarray} />
+                    <Route exact path="/log-form" component={Logform} />
+                    <Route exact path="/show-data" component={Showdata} />
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/newuser" component={CreateUserPage} />
-                </main>
-            </div>
-        </Router>
-    );
-}
+
+                </div>
+        );
+    }
 }
 
 const mapStateToProps = state => ({
     hasAuthToken: state.auth.authToken !== null,
     loggedIn: state.auth.currentUser !== null
-  });
+});
 
-  export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App);
