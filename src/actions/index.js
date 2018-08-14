@@ -1,5 +1,6 @@
 
 import {API_BASE_URL} from '../config';
+import { clearAuthToken, loadAuthToken } from '../local-storage';
 
 //----------------- log form action
 function logFormRequest() {
@@ -23,17 +24,18 @@ function logFormError(err) {
 }
 
 export const logForm = (formData) => dispatch => {
+  const authToken = loadAuthToken()
   dispatch(logFormRequest())
   return fetch(`${API_BASE_URL}/records`, {
     method:'POST',
     body: JSON.stringify(formData),
     headers: {
       'Accept':'application/json',
-      'Content-Type':'application/json'
+      'Content-Type':'application/json',
+      'Authorization': `Bearer ${authToken}`
     }
   })
   .then(res => {
-    console.log(res)
     if (res.ok) {
       return res.json()
     }
@@ -75,7 +77,7 @@ export const experiencedForm = (experiencedformData) => dispatch => {
     }
   })
   .then(res => {
-    console.log(res)
+    console.log(res, "toggle workin")
     if (res.ok) {
       return res.json()
     }

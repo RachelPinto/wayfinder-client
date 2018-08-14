@@ -29,16 +29,6 @@ export class Symptomarray extends React.Component {
           <Link to="/log-form">
           Symptoms: {this.props.symptoms.map(symptom => (<button>{symptom.name}</button>))}
           </Link>
-          <div>
-            <label htmlFor="experienced">Experienced?</label>
-            <input
-              type="checkbox"
-              id="experienced"
-              name="experienced"
-              ref="checking"
-              onChange={() => this.handleChecked()}>
-            </input>
-          </div>
         </div>
 
       </div>

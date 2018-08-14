@@ -35,6 +35,17 @@ export class Logform extends React.Component {
       return (
         <div>
           <form onSubmit={(e) => this.onSubmit(e)}>
+          <div>
+            <label htmlFor="experienced">Experienced?</label>
+            <input
+              type="checkbox"
+              id="experienced"
+              name="experienced"
+              // ref="checking"
+              // onChange={() => this.handleChecked()}
+              >
+            </input>
+          </div>
             <div>
               <label htmlFor="level">Level 1-10</label>
               <input type="number" id="level" name="level"></input>
