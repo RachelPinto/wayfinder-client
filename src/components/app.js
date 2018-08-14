@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Route, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import './styles/app.css';
 
@@ -9,13 +12,11 @@ import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import CreateUserPage from './create-user';
+
+
 import { refreshAuthToken } from '../actions/auth';
 
-
-import { connect } from 'react-redux';
-
 export class App extends React.Component {
-
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {
             // When we are logged in, refresh the auth token periodically
@@ -47,8 +48,8 @@ export class App extends React.Component {
 
     render() {
         return (
-                <div>
-
+            <Router>
+            <div>
                     <HeaderBar />
                     <Route exact path="/dashboard" component={Dashboard} />
                     <Route exact path="/symptoms" component={Symptomarray} />
@@ -56,8 +57,8 @@ export class App extends React.Component {
                     <Route exact path="/show-data" component={Showdata} />
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/newuser" component={CreateUserPage} />
-
-                </div>
+            </div>
+            </Router>
         );
     }
 }

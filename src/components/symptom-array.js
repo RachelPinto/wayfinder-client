@@ -6,38 +6,43 @@ import { Link } from 'react-router-dom';
 import { experiencedForm } from '../actions'
 import { connect } from 'react-redux'
 
+
+
 export class Symptomarray extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //   }
-  //   this.onClick = this.onClick.bind(this);
-  // }
+
 
   handleChecked(event) {
     //event.preventDefault();
-    let experienceFormData = {
+    let data = {
       experience: this.refs.checking.checked
     }
-    this.props.dispatch(experiencedForm(experienceFormData))
-    console.log(experienceFormData)
+    this.props.dispatch(experiencedForm(data))
+    console.log(data)
   }
+
   render() {
+    console.log(this.props.symptoms)
+    let symptomName = this.props.symptoms.map(item => { console.log(item) })
+
+  //   if ( symptoms.experience = true) {
+  //     return <Redirect to="/log-form" />;
+  // }
+
     return (
       <div>
         <h1>Let's check in</h1>
         <p>lorem ipsum</p>
         <div>
           <Link to="/log-form">
-            <button>Symptom 1</button>
+            <button>  { symptomName  }</button>
           </Link>
           <div>
             <label htmlFor="experienced">Experienced?</label>
-            <input 
-              type="checkbox" 
-              id="experienced" 
-              name="experienced" 
-              ref="checking" 
+            <input
+              type="checkbox"
+              id="experienced"
+              name="experienced"
+              ref="checking"
               onChange={() => this.handleChecked()}>
             </input>
           </div>
@@ -46,6 +51,10 @@ export class Symptomarray extends React.Component {
       </div>
     )
   }
+
 }
-export default connect()(Symptomarray);
+const mapStateToProps = state => ({
+  symptoms: state.wayfinder.symptoms
+});
+export default connect(mapStateToProps)(Symptomarray);
 

@@ -109,7 +109,7 @@ function showDataError(err) {
 
 export const showData = (data) => dispatch => {
   dispatch(showDataRequest())
-  return fetch(`${API_BASE_URL}/experience-records`, {
+  return fetch(`${API_BASE_URL}/databyday`, {
     method:'GET',
     body: JSON.stringify(data),
     headers: {

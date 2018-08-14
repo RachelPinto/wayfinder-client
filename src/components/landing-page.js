@@ -7,7 +7,7 @@ import LoginForm from './login-form';
 export function LandingPage(props) {
     // If we are logged in redirect straight to the user's dashboard
     if (props.loggedIn) {
-        return <Redirect to="/dashboard" />;
+       return <Redirect to="/dashboard" />;
     }
 
     return (
@@ -16,6 +16,7 @@ export function LandingPage(props) {
             <p>A mental wellness toolkit</p>
             <LoginForm />
             <Link to="/newuser">Create a new account</Link>
+
         </div>
     );
 }

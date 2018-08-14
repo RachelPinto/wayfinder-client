@@ -7,11 +7,6 @@ import { Link } from 'react-router-dom';
 import { logForm } from '../actions'
 import { connect } from 'react-redux'
 
-//async actions for submit button. perform post request to endpoint.
-//implement log in and sign up first - with token, save in local storage.
-//use another async action in list to fetch all the records for that specfic user
-//when you log in the user will generate a token, with that token you can query other endpoints (GET records and POST records)
-
 
 export class Logform extends React.Component {
   constructor(props) {
@@ -67,7 +62,7 @@ export class Logform extends React.Component {
                 <button type="submit">Submit log</button>
             </div>
             <div>
-              <Link to="/">
+              <Link to="/dashboard">
                 <button type="submit">Home</button>
               </Link>
             </div>

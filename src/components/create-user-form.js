@@ -1,18 +1,18 @@
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
-import {createUser} from '../actions/users';
-import {login} from '../actions/auth';
+import { Field, reduxForm, focus } from 'redux-form';
+import { createUser } from '../actions/users';
+import { login } from '../actions/auth';
 import Input from './input';
-import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
+import { required, nonEmpty, matches, length, isTrimmed } from '../validators';
 import './styles/create-user-form.css';
 
-const passwordLength = length({min: 10, max: 72});
+const passwordLength = length({ min: 10, max: 72 });
 const matchesPassword = matches('password');
 
 export class CreateUserForm extends React.Component {
     onSubmit(values) {
-        const {username, password} = values;
-        const user = {username, password};
+        const { username, password } = values;
+        const user = { username, password };
         return this.props
             .dispatch(createUser(user))
             .then(() => this.props.dispatch(login(username, password)));
