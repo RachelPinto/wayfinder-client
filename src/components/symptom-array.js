@@ -21,8 +21,6 @@ export class Symptomarray extends React.Component {
   }
 
   render() {
-    console.log(this.props.symptoms)
-    let symptomName = this.props.symptoms.map(item => { console.log(item) })
 
   //   if ( symptoms.experience = true) {
   //     return <Redirect to="/log-form" />;
@@ -34,7 +32,7 @@ export class Symptomarray extends React.Component {
         <p>lorem ipsum</p>
         <div>
           <Link to="/log-form">
-            <button>  { symptomName  }</button>
+          Symptoms: {this.props.symptoms.map(symptom => (<button>{symptom.name}</button>))}
           </Link>
           <div>
             <label htmlFor="experienced">Experienced?</label>
