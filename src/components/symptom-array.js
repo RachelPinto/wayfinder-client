@@ -10,7 +10,6 @@ import { connect } from 'react-redux'
 
 export class Symptomarray extends React.Component {
 
-
   handleChecked(event) {
     //event.preventDefault();
     let data = {
@@ -21,10 +20,6 @@ export class Symptomarray extends React.Component {
   }
 
   render() {
-
-  //   if ( symptoms.experience = true) {
-  //     return <Redirect to="/log-form" />;
-  // }
 
     return (
       <div>

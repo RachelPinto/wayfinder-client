@@ -11,11 +11,11 @@ const matchesPassword = matches('password');
 
 export class CreateUserForm extends React.Component {
     onSubmit(values) {
-        const { username, password } = values;
-        const user = { username, password };
+        const { username, password, symptoms } = values;
+        const user = { username, password, symptoms };
         return this.props
             .dispatch(createUser(user))
-            .then(() => this.props.dispatch(login(username, password)));
+            .then(() => this.props.dispatch(login(username, password, symptoms)));
     }
 
     render() {
@@ -46,6 +46,13 @@ export class CreateUserForm extends React.Component {
                     type="password"
                     name="passwordConfirm"
                     validate={[required, nonEmpty, matchesPassword]}
+                />
+                <label htmlFor="symptoms">symptom</label>
+                <Field
+                    component={Input}
+                    type="text"
+                    name="symptoms"
+                    validate={[required, nonEmpty, isTrimmed]}
                 />
                 <button
                     type="submit"

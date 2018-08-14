@@ -22,7 +22,7 @@ export class Dashboard extends React.Component {
                 <div className="dashboard-username">
                     Username: {this.props.username}
                 </div>
-                <div className="dashboard-name">Name: {this.props.name}</div>
+                
                 <div className="dashboard-protected-data">
                     Symptoms: {this.props.symptoms.map(symptom => (<p>{symptom.name}</p>))}
                 </div>
