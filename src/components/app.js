@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { refreshAuthToken } from '../actions/auth';
 
 import './styles/app.css';
 
@@ -12,9 +13,6 @@ import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import CreateUserPage from './create-user';
-
-
-import { refreshAuthToken } from '../actions/auth';
 
 export class App extends React.Component {
     componentDidUpdate(prevProps) {

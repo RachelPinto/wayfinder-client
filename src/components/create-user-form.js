@@ -11,11 +11,11 @@ const matchesPassword = matches('password');
 
 export class CreateUserForm extends React.Component {
     onSubmit(values) {
-        const { username, password, symptoms } = values;
-        const user = { username, password, symptoms };
+        const { username, password, firstName, lastName, symptoms } = values;
+        const user = { username, password, firstName, lastName, symptoms };
         return this.props
             .dispatch(createUser(user))
-            .then(() => this.props.dispatch(login(username, password, symptoms)));
+            .then(() => this.props.dispatch(login(username, password)));
     }
 
     render() {
@@ -25,7 +25,10 @@ export class CreateUserForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-
+                <label htmlFor="firstName">First name</label>
+                <Field component={Input} type="text" name="firstName" />
+                <label htmlFor="lastName">Last name</label>
+                <Field component={Input} type="text" name="lastName" />
                 <label htmlFor="username">Username</label>
                 <Field
                     component={Input}
@@ -69,3 +72,7 @@ export default reduxForm({
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('create-user', Object.keys(errors)[0]))
 })(CreateUserForm);
+
+
+
+
