@@ -10,13 +10,11 @@ import './styles/create-user.css';
 export function CreateUserPage(props) {
     // If we are logged in (which happens automatically when registration
     // is successful) redirect to the user's dashboard
-    if (props.loggedIn) {
-        return <Redirect to="/symptoms" />;
-    }
+    // if (props.loggedIn) {
+    //     return <Redirect to="/symptoms" />;
+    // }
     return (
-        // <head>
-        //     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"></link>
-        // </head>
+
         <div class="register-form-area">
             <h2 class="headings">Create User</h2>
             <CreateUserForm />

@@ -41,8 +41,6 @@ export class Logform extends React.Component {
               type="checkbox"
               id="experienced"
               name="experienced"
-              // ref="checking"
-              // onChange={() => this.handleChecked()}
               >
             </input>
           </div>

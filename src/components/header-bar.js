@@ -14,16 +14,16 @@ export class HeaderBar extends React.Component {
 
     render() {
         // Only render the log out button if we are logged in
-        // let logOutButton;
-        // if (this.props.loggedIn) {
-        //     logOutButton = (
-        //         <button onClick={() => this.logOut()}>Log out</button>
-        //     );
-        // }
+        let logOutButton;
+        if (this.props.loggedIn) {
+            logOutButton = (
+                <button onClick={() => this.logOut()}>Log out</button>
+            );
+        }
         return (
             <div class="header-bar" className="header-bar">
                 <p class="header-bar-text">Wayfinder header bar</p>
-                {/* {logOutButton} */}
+                {logOutButton}
             </div>
         );
     }

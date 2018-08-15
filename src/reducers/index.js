@@ -61,39 +61,39 @@ export const wayfinderReducer = (state = initialState, action) => {
     }
     //show data
 
-    if (action.type === 'showDataRequest') {
-        return Object.assign({}, state, {
-            loading: true,
-            error: null
-        });
-    }
-    else if (action.type === 'showDataSuccess') {
-        return Object.assign({}, state, {
-            characters: action.characters,
-            loading: false,
-            error: null
-        });
-    }
-    else if (action.type === 'showDataError') {
-        return Object.assign({}, state, {
-            error: action.error,
-            loading: false
-        });
-    }
+    // if (action.type === 'showDataRequest') {
+    //     return Object.assign({}, state, {
+    //         loading: true,
+    //         error: null
+    //     });
+    // }
+    // else if (action.type === 'showDataSuccess') {
+    //     return Object.assign({}, state, {
+    //         characters: action.characters,
+    //         loading: false,
+    //         error: null
+    //     });
+    // }
+    // else if (action.type === 'showDataError') {
+    //     return Object.assign({}, state, {
+    //         error: action.error,
+    //         loading: false
+    //     });
+    // }
 
-    if (action.type === 'AUTH_SUCCESS') {
-        return Object.assign({}, state, {
-            symptoms: action.currentUser.symptoms.map(symptom => ({    
-                name: symptom,
-                experience: false,
-                level: 0,
-                impact: false,
-                impactNote: "",
-                symptomNote: "",
-                successNote: ""
-            }))
-        })
-    }
+    // if (action.type === 'AUTH_SUCCESS') {
+    //     return Object.assign({}, state, {
+    //         symptoms: action.currentUser.symptoms.map(symptom => ({    
+    //             name: symptom,
+    //             experience: false,
+    //             level: 0,
+    //             impact: false,
+    //             impactNote: "",
+    //             symptomNote: "",
+    //             successNote: ""
+    //         }))
+    //     })
+    // }
 
     return state;
 };

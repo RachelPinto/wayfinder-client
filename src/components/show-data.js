@@ -25,19 +25,6 @@ export class Showdata extends React.Component {
     console.log(dayData)
   }
 
-  renderResults() {
-    // if (this.props.loading) {
-    //   return <Spinner spinnerName="circle" noFadeIn />
-    // }
-
-    if (this.props.error) {
-      return <p>{this.props.error}</p>
-    }
-  }
-  // const data = { 
-  //   '7/15': []
-  // }
-
   render() {
     const formatted = this.props.symptoms.map(symptom => {
       symptom.formatted = moment(symptom.createdAt).format('M / D')
@@ -61,7 +48,7 @@ export class Showdata extends React.Component {
           <h1>My Data</h1>
           <p>Your past 15 days</p>
           {formatted.map((symptom, i) => {
-            return (<p key={i}>{symptom.formatted} {symptom.successNote}</p>)
+            return (<p key={i}>{symptom.formatted} {symptom.successNote} {symptom.symptomNote} {symptom.level} {symptom.impact} {symptom.impactNote}</p>)
           })}
           <Link to="/dashboard">
             <button type="submit">Home</button>
