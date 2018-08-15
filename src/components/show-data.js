@@ -5,6 +5,8 @@ import './styles/show-data.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { showData } from '../actions'
+import moment from 'moment'
+//import Spinner from 'react-spinkit';
 
 export class Showdata extends React.Component {
 
@@ -23,29 +25,56 @@ export class Showdata extends React.Component {
     console.log(dayData)
   }
 
+  renderResults() {
+    // if (this.props.loading) {
+    //   return <Spinner spinnerName="circle" noFadeIn />
+    // }
+
+    if (this.props.error) {
+      return <p>{this.props.error}</p>
+    }
+  }
+  // const data = { 
+  //   '7/15': []
+  // }
 
   render() {
-    
+    const formatted = this.props.symptoms.map(symptom => {
+      symptom.formatted = moment(symptom.createdAt).format('M / D')
+      return symptom
+    });
+    const data = {}
+    formatted.forEach(symptom => {
+      const date = symptom.formatted;
+      if (data[date]) {
+        data[date].push(symptom)
+      } else {
+        data[date] = [symptom]
+      }
+    })
+    console.log(data);
+
+    console.log(formatted, "====")
     return (
-    <div>
       <div>
-        <h1>My Data</h1>
-        <p>Your past 15 days</p>
-        <Link to="/dashboard">
-                <button type="submit">Home</button>
-              </Link>
-      </div>
-      <div>
-        <ul onClick={(e) => this.onClick(e)}></ul>
         <div>
-              <label htmlFor="daydata"></label>
-              <div type="object" id="daydata" name="daydata"></div>
-            </div>
+          <h1>My Data</h1>
+          <p>Your past 15 days</p>
+          {formatted.map((symptom, i) => {
+            return (<p key={i}>{symptom.formatted} {symptom.successNote}</p>)
+          })}
+          <Link to="/dashboard">
+            <button type="submit">Home</button>
+          </Link>
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
 
 }
 
-export default connect(Showdata);
+const mapStateToProps = state => ({
+  symptoms: state.wayfinder.symptoms
+});
+
+export default connect(mapStateToProps)(Showdata);

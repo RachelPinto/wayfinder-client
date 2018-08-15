@@ -21,7 +21,7 @@ export class LoginForm extends React.Component {
             );
         }
         if (this.props.loggedIn) {
-         //   return <Redirect to="/symptoms" />;
+          return <Redirect to="/symptoms" />;
         }
         return (
             <form

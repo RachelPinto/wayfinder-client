@@ -12,7 +12,7 @@ import { wayfinderReducer } from './reducers';
 
 const store = createStore(
   combineReducers({
-    form: formReducer,
+    //form: formReducer,
     auth: authReducer,
     wayfinder: wayfinderReducer,
     protectedData: protectedDataReducer,
