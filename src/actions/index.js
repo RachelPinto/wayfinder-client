@@ -44,47 +44,47 @@ export const logForm = (formData) => dispatch => {
   .catch(err => dispatch(logFormError(err)))
 };
 
-//-------------- experience form action
-function experiencedRequest() {
-  return {
-    type: 'experiencedRequest'
-  }
-}
+// //-------------- experience form action
+// function experiencedRequest() {
+//   return {
+//     type: 'experiencedRequest'
+//   }
+// }
 
-function experiencedSuccess(payload) {
-  return {
-    type: 'experiencedSuccess',
-    payload: payload
-  }
-}
+// function experiencedSuccess(payload) {
+//   return {
+//     type: 'experiencedSuccess',
+//     payload: payload
+//   }
+// }
 
-function experiencedError(err) {
-  return {
-    type: 'experiencedError',
-    error: err
-  }
-}
+// function experiencedError(err) {
+//   return {
+//     type: 'experiencedError',
+//     error: err
+//   }
+// }
 
 
-export const experiencedForm = (experiencedformData) => dispatch => {
-  dispatch(experiencedRequest())
-  return fetch(`${API_BASE_URL}/experience-records`, {
-    method:'POST',
-    body: JSON.stringify(experiencedformData),
-    headers: {
-      'Accept':'application/json',
-      'Content-Type':'application/json'
-    }
-  })
-  .then(res => {
-    console.log(res, "toggle workin")
-    if (res.ok) {
-      return res.json()
-    }
-  })
-  .then(res => dispatch(experiencedSuccess(res)))
-  .catch(err => dispatch(experiencedError(err)))
-};
+// export const experiencedForm = (experiencedformData) => dispatch => {
+//   dispatch(experiencedRequest())
+//   return fetch(`${API_BASE_URL}/experience-records`, {
+//     method:'POST',
+//     body: JSON.stringify(experiencedformData),
+//     headers: {
+//       'Accept':'application/json',
+//       'Content-Type':'application/json'
+//     }
+//   })
+//   .then(res => {
+//     console.log(res, "toggle workin")
+//     if (res.ok) {
+//       return res.json()
+//     }
+//   })
+//   .then(res => dispatch(experiencedSuccess(res)))
+//   .catch(err => dispatch(experiencedError(err)))
+// };
 
 //-------------------- show data action
 

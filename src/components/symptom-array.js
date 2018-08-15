@@ -3,7 +3,7 @@ import React from 'react';
 import './styles/symptom-array.css';
 
 import { Link } from 'react-router-dom';
-import { experiencedForm } from '../actions'
+import { logForm } from '../actions'
 import { connect } from 'react-redux'
 
 
@@ -15,7 +15,7 @@ export class Symptomarray extends React.Component {
     let data = {
       experience: this.refs.checking.checked
     }
-    this.props.dispatch(experiencedForm(data))
+    this.props.dispatch(logForm(data))
     console.log(data)
   }
 
@@ -29,6 +29,17 @@ export class Symptomarray extends React.Component {
           <Link to="/log-form">
           Symptoms: {this.props.symptoms.map(symptom => (<button>{symptom.name}</button>))}
           </Link>
+          <div>
+            <label htmlFor="experienced">Experienced?</label>
+            <input
+              type="checkbox"
+              id="experienced"
+              name="experienced"
+              ref="checking"
+              onChange={() => this.handleChecked()}
+              >
+            </input>
+          </div>
         </div>
 
       </div>
