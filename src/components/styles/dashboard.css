@@ -1,0 +1,76 @@
+/* mobile/base */
+html {
+background-image: url("background-1.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+width: 100vw;
+height: 100vh
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin: 2px 2px;
+  border-radius:0px;
+  border: solid 1px transparent;
+  padding: 0.5em 1em;
+  color: #FFFFFF;
+  background-color: #52A7A2;
+}
+
+/*"down" effect on click + color tweak */
+.btn:active {
+  transform: translateY(1px);
+  filter: saturate(150%);
+}
+
+/* inverse colors on hover */
+.btn:hover {
+  color: white;
+  border-color: currentColor;
+  background-color: #81BFBB;
+}
+
+/*visible focus ring */
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.5),
+    0 0 0 1.5px rgba(255, 105, 180, 0.5);
+}
+
+/* hide focus style if not from keyboard navigation */
+.js-focus-visible .btn:focus:not(.focus-visible) {
+  box-shadow: none;
+}
+
+/* tablet */
+@media all and (min-width: 768px) {
+
+}
+
+/* desktop */
+@media all and (min-width: 1024px) {
+
+}
+
+
+
+
+
+
+/* mobile landscape
+@media all and (min-width: 480px) {
+} */
+/* desktop wide
+@media all and (min-width: 1200px) {
+
+} */

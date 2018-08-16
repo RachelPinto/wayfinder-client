@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import { fetchProtectedData } from '../actions/protected-data';
 import { Link } from 'react-router-dom';
+import './styles/dashboard.css';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -21,10 +22,10 @@ export class Dashboard extends React.Component {
                 </div>
                 <div>
                     <Link to="/symptoms">
-                        <button>Ready to log</button>
+                        <button className="btn">Ready to log</button>
                     </Link>
                     <Link to="/show-data">
-                        <button>Take me to my data</button>
+                        <button className="btn">Take me to my data</button>
                     </Link>
                 </div>
             </div>
