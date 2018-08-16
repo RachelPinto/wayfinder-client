@@ -2,7 +2,6 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-
 import { loadAuthToken } from './local-storage';
 import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
@@ -15,6 +14,7 @@ const store = createStore(
     auth: authReducer,
     wayfinder: wayfinderReducer,
     protectedData: protectedDataReducer,
+    form: formReducer,
   }),
   composeWithDevTools(applyMiddleware(thunk))
 );
