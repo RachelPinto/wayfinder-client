@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { showData } from '../actions'
 import moment from 'moment'
-//import Spinner from 'react-spinkit';
 
 export class Showdata extends React.Component {
 
@@ -46,7 +45,6 @@ export class Showdata extends React.Component {
       <div>
         <div>
           <h1>My Data</h1>
-          <p>Your past 15 days</p>
           {formatted.map((symptom, i) => {
             return (<p key={i}>{symptom.formatted} {symptom.successNote} {symptom.symptomNote} {symptom.level} {symptom.impact} {symptom.impactNote}</p>)
           })}

@@ -12,9 +12,7 @@ export class Dashboard extends React.Component {
     render() {
         return (
             <div className="dashboard">
-                <div className="dashboard-firstname">
-                    First name: {this.props.firstName}
-                </div>
+                <div className="dashboard-name">Name: {this.props.name}</div>
                 <div className="dashboard-username">
                     Username: {this.props.username}
                 </div>
@@ -35,6 +33,7 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
+    console.log(state);
     const { currentUser } = state.auth;
     return {
         username: currentUser ? currentUser.username : '',
@@ -43,4 +42,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(Dashboard));
+export default connect(mapStateToProps)(Dashboard);

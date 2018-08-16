@@ -29,7 +29,7 @@ export class Symptomarray extends React.Component {
           <Link to="/log-form">
           Symptoms: {this.props.symptoms.map(symptom => (<button>{symptom.name}</button>))}
           </Link>
-          <div>
+          {/* <div>
             <label htmlFor="experienced">Experienced?</label>
             <input
               type="checkbox"
@@ -39,7 +39,7 @@ export class Symptomarray extends React.Component {
               onChange={() => this.handleChecked()}
               >
             </input>
-          </div>
+          </div> */}
         </div>
 
       </div>
