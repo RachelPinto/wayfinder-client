@@ -14,7 +14,9 @@ export function CreateUserPage(props) {
     }
     return (
         <div className="home">
-            <h2>CreateUser</h2>
+            <h2>Tracking made easy</h2>
+            <p>First, tell us about yourself.
+            </p>
             <CreateUserForm />
             <Link to="/">Login</Link>
         </div>

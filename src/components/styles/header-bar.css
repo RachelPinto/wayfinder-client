@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
 /* mobile/base */
 .header-bar {
 }
 ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 14px 16px;
+  font-family: 'Raleway', sans-serif;
+  background-color: #BED8D2;
 }
 
 li {
@@ -12,11 +16,7 @@ li {
   text-align: center;
 }
   
-ul {
-  background-color: #BED8D2;
-  color: black;
-  padding: 14px 16px;
-}
+
   /* tablet */
   @media all and (min-width: 768px) {
   

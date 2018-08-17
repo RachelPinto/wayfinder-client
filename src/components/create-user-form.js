@@ -50,7 +50,7 @@ export class CreateUserForm extends React.Component {
                     name="passwordConfirm"
                     validate={[required, nonEmpty, matchesPassword]}
                 />
-                <label htmlFor="symptoms">symptom</label>
+                <label htmlFor="symptoms">What would you like to track?</label>
                 <Field
                     component={Input}
                     type="text"
@@ -58,9 +58,10 @@ export class CreateUserForm extends React.Component {
                     validate={[required, nonEmpty, isTrimmed]}
                 />
                 <button
+                    className="btn"
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
-                    Create User
+                    Sign Up
                 </button>
             </form>
         );

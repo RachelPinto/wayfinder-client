@@ -9,20 +9,24 @@ import moment from 'moment'
 
 export class Showdata extends React.Component {
 
-  onClick(event) {
-    event.preventDefault();
-    let dayData = {
-      name: event.currentTarget.name.value,
-      experience: this.refs.checking.checked,
-      level: event.currentTarget.level.value,
-      impact: event.currentTarget.impacts.value,
-      impactNote: event.currentTarget['impact-notes'].value,
-      symptomNote: event.currentTarget['symptom-notes'].value,
-      successNote: event.currentTarget['success-notes'].value
-    }
-    this.props.dispatch(showData(dayData))
-    console.log(dayData)
+  componentDidMount() {
+    this.props.dispatch(showData())
   }
+
+  // onClick(event) {
+  //   event.preventDefault();
+  //   let dayData = {
+  //     name: event.currentTarget.name.value,
+  //     experience: this.refs.checking.checked,
+  //     level: event.currentTarget.level.value,
+  //     impact: event.currentTarget.impacts.value,
+  //     impactNote: event.currentTarget['impact-notes'].value,
+  //     symptomNote: event.currentTarget['symptom-notes'].value,
+  //     successNote: event.currentTarget['success-notes'].value
+  //   }
+  //   this.props.dispatch(showData(dayData))
+  //   console.log(dayData)
+  // }
 
   render() {
     const formatted = this.props.symptoms.map(symptom => {
@@ -45,11 +49,14 @@ export class Showdata extends React.Component {
       <div>
         <div>
           <h1>My Data</h1>
-          {formatted.map((symptom, i) => {
-            return (<p key={i}>{symptom.formatted} {symptom.successNote} {symptom.symptomNote} {symptom.level} {symptom.impact} {symptom.impactNote}</p>)
+          {formatted.map((record, i) => {
+              const records = record.symptoms.map((item) => {
+                return (<p key={i}>{item.successNote} {item.symptomNote} {item.level} {item.impact} {item.impactNote}</p>)
+              })
+              return <p key={i}>{record.formatted} {records}</p>
           })}
           <Link to="/dashboard">
-            <button type="submit">Home</button>
+            <button className="btn" type="submit">Home</button>
           </Link>
         </div>
       </div>
@@ -58,8 +65,9 @@ export class Showdata extends React.Component {
 
 }
 
-const mapStateToProps = state => ({
-  symptoms: state.wayfinder.symptoms
-});
+const mapStateToProps = state => {console.log(state) 
+  return {
+  symptoms: state.wayfinder.records
+}};
 
 export default connect(mapStateToProps)(Showdata);

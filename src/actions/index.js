@@ -44,6 +44,24 @@ export const logForm = (formData) => dispatch => {
   .catch(err => dispatch(logFormError(err)))
 };
 
+//------------------------- symptom (records) actions
+
+export const NEW_SYMPTOM = 'NEW_SYMPTOM'
+export const newSymptom = (newSymptom) => {
+  return {
+    type: NEW_SYMPTOM,
+    newSymptom
+  }
+}
+
+
+export const SELECT_SYMPTOM = 'SELECT_SYMPTOM'
+export const selectSymptom = (symptom) => {
+  return {
+    type: SELECT_SYMPTOM,
+    symptom
+  }
+}
 
 //-------------------- show data action
 
@@ -68,14 +86,16 @@ function showDataError(err) {
 }
 
 
-export const showData = (data) => dispatch => {
+export const showData = (data) => (dispatch, getState) => {
   dispatch(showDataRequest())
-  return fetch(`${API_BASE_URL}/databyday`, {
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/records`, {
     method:'GET',
     body: JSON.stringify(data),
     headers: {
       'Accept':'application/json',
-      'Content-Type':'application/json'
+      'Content-Type':'application/json',
+      Authorization: `Bearer ${authToken}`
     }
   })
   .then(res => {

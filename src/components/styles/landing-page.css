@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Biryani|Frank+Ruhl+Libre|Lato|Montserrat|Open+Sans|Playfair+Display|Raleway|Roboto');
+
+.home {
+  position: relative;
+}
+.wrapper{
+  margin: 0 auto;
+  position: relative;
+}
+
+.two-columns{
+  display: grid;
+}
+
+.header {
+  width: 100%;
+  color: #323648;
+  display: block;
+}
+
+.header-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: normal;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
+  margin-left: 0;
+}
+
+.header-copy {
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: normal;
+}

@@ -1,5 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Biryani|Frank+Ruhl+Libre|Lato|Montserrat|Open+Sans|Playfair+Display|Raleway|Roboto');
+
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin: 2px 2px;
+  border-radius:0px;
+  border: solid 1px transparent;
+  padding: 0.5em 0.7em;
+  color: #FFFFFF;
+  background-color: #52A7A2;
+}
+
+/*"down" effect on click + color tweak */
+.btn:active {
+  transform: translateY(1px);
+  filter: saturate(150%);
+}
+
+/* inverse colors on hover */
+.btn:hover {
+  color: white;
+  border-color: currentColor;
+  background-color: #81BFBB;
+}
+
+/*visible focus ring */
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #81bfbb ,
+    0 0 0 1.5px #81BFBB;
+}
+
+/* hide focus style if not from keyboard navigation */
+.js-focus-visible .btn:focus:not(.focus-visible) {
+  box-shadow: none;
 }

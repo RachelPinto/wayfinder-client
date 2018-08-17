@@ -3,9 +3,9 @@ import React from 'react';
 import './styles/symptom-array.css';
 
 import { Link } from 'react-router-dom';
-import { logForm } from '../actions'
+import { newSymptom } from '../actions'
 import { connect } from 'react-redux'
-
+import { selectSymptom, logForm } from '../actions'
 
 
 export class Symptomarray extends React.Component {
@@ -15,8 +15,15 @@ export class Symptomarray extends React.Component {
     let data = {
       experience: this.refs.checking.checked
     }
-    this.props.dispatch(logForm(data))
+    this.props.dispatch(newSymptom(data))
     console.log(data)
+  }
+
+ selectSymptom(symptom) {
+    this.props.dispatch(selectSymptom(symptom))
+  }
+  logForm() {
+    this.props.dispatch(logForm(this.props.symptoms))
   }
 
   render() {
@@ -24,10 +31,10 @@ export class Symptomarray extends React.Component {
     return (
       <div>
         <h1>Let's check in</h1>
-        <p>lorem ipsum</p>
+        <p>You can simply checkmark yes or no for your experiences today, or you can click into your buttons and fill in as many details as you like. Then, all you have to do is click the "I'm done" button, and you've logged for the day. Great job!  </p>
         <div>
           <Link to="/log-form">
-          Symptoms: {this.props.symptoms.map(symptom => (<button>{symptom.name}</button>))}
+          {this.props.symptoms.map(symptom => (<button className="btn" onClick={() => this.selectSymptom(symptom)}>{symptom.name}</button>))}
           </Link>
           {/* <div>
             <label htmlFor="experienced">Experienced?</label>
@@ -41,8 +48,16 @@ export class Symptomarray extends React.Component {
             </input>
           </div> */}
         </div>
-
-      </div>
+        <div>
+          <button className="btn" onClick={() => this.logForm()}>I'm Done!</button>
+        </div>
+        <Link to="/show-data">
+        <button className="btn">My data</button>
+    </Link>
+    <Link to="/dashboard">
+        <button className="btn">My profile</button>
+    </Link>
+    </div>
     )
   }
 

@@ -15,14 +15,14 @@ export class HeaderBar extends React.Component {
         let logOutButton;
         if (this.props.loggedIn) {
             logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
+                <button className="btn" className="logout-position" onClick={() => this.logOut()}>Log out</button>
             );
         }
         return (
             <div className="header-bar">
                 <ul>
                     <li>Wayfinder</li>
-                    {logOutButton}
+                    <li>{logOutButton}</li>
                 </ul>
             </div>
         );

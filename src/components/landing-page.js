@@ -11,13 +11,18 @@ export function LandingPage(props) {
     }
 
     return (
-        <div className="home">
-            <h2>Wayfinder</h2>
-            <p>A mental wellness toolkit</p>
+        <section className="home">
+        <div className="wrapper two-columns">
+            <header className="header">
+            <h1 className="header-title">Navigate mental wellness</h1>
+            <p className="header-copy">We'll help you keep track of everything you need to get you where you want to be. Whether that's logging your daily symptoms, habits with negative impacts, or steps you're taking to achieve your goals, we're here to help.</p>
+            <Link to="/newuser"><button className="btn">Get Started</button></Link>
+            <div>
             <LoginForm />
-            <Link to="/newuser">Create a new account</Link>
-
+            </div>
+            </header>
         </div>
+        </section>
     );
 }
 
