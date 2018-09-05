@@ -12,21 +12,21 @@ const initialState = {
 
 export const wayfinderReducer = (state = initialState, action) => {
     //Log form
-    // if (action.type === 'logFormRequest') {
-    //     return Object.assign({}, state, { loading: true })
-    // }
-    // if (action.type === 'logFormSuccess') {
-    //     console.log('state', state)
-    //     console.log('action', action)
-    //     const symptom = action.payload.symptoms[0]
-    //     symptom.createdAt = action.payload.createdAt
-    //     return Object.assign({}, state, {
-    //         symptoms: [symptom, ...state.symptoms]
-    //     })
-    // }
-    // if (action.type === 'logFormError') {
-    //     return Object.assign({}, state, { error: action.error })
-    // }
+    if (action.type === 'logFormRequest') {
+        return Object.assign({}, state, { loading: true })
+    }
+    if (action.type === 'logFormSuccess') {
+        console.log('state', state)
+        console.log('action', action)
+        const symptom = action.payload.symptoms[0]
+        symptom.createdAt = action.payload.createdAt
+        return Object.assign({}, state, {
+            symptoms: [symptom, ...state.symptoms]
+        })
+    }
+    if (action.type === 'logFormError') {
+        return Object.assign({}, state, { error: action.error })
+    }
     if (action.type === AUTH_SUCCESS) {
         return Object.assign({}, state, {
             loading: false,

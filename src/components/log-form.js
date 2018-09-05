@@ -2,7 +2,7 @@
 import React from 'react';
 
 import './styles/log-form.css';
-
+import { Field, reduxForm, focus } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { newSymptom } from '../actions'
 import { connect } from 'react-redux'
@@ -18,14 +18,14 @@ export class Logform extends React.Component {
 
 
   onSubmit(event) {
-    event.preventDefault();
+    e.preventDefault();
     let formData = {
       experience: true,
       level: event.currentTarget.level.value,
       impact: event.currentTarget.impacts.value,
-      impactNote: event.currentTarget['impact-notes'].value,
-      symptomNote: event.currentTarget['symptom-notes'].value,
-      successNote: event.currentTarget['success-notes'].value
+      impactNote: this.inputText.value,
+      symptomNote: event.target.symptomnotes.value,
+      successNote: event.target.successnotes.value
     }
     let updatedSymptom = Object.assign({}, this.props.symptom, formData);
     this.props.dispatch(newSymptom(updatedSymptom))
@@ -36,17 +36,14 @@ export class Logform extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={(e) => this.onSubmit(e)}>
+        <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values) )}>
+
           <div>
             <div>
               <h1>{this.props.symptom.name}</h1>
             </div>
             <label htmlFor="experienced">check for yes, or click "save" for no</label>
-            <input
-              type="checkbox"
-              id="experienced"
-              name="experienced"
-            >
+            <input type="checkbox" id="experienced" name="experienced">
             </input>
           </div>
           <div>
@@ -65,13 +62,13 @@ export class Logform extends React.Component {
           </div>
           <div>
             <label htmlFor="impact-notes">Let's try to write them down</label>
-            <textarea id="impact-notes" name="impact-notes"></textarea>
+            <textarea ref={input => this.inputText = input} id="impact-notes" name="impactnotes"></textarea>
           </div>
           <label htmlFor="symptom-notes">Here's a spot to put in any other thoughts, you can write as much or as little as you like </label>
-          <textarea id="symptom-notes" name="symptom-notes"></textarea>
+          <textarea id="symptom-notes" name="symptomnotes"></textarea>
           <div>
             <label htmlFor="success-notes">What did you do well today? No matter how big or small, write it down!</label>
-            <textarea id="success-notes" name="success-notes"></textarea>
+            <textarea id="success-notes" name="successnotes"></textarea>
           </div>
 
           <div>
@@ -95,19 +92,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(Logform);
-
-{/* <div>
-  <label htmlFor="level">If 1 is wellness and 10 is crisis- what level was your experience at today?</label>
-  <input type="range"
-    id="level"
-    name="level"
-    min="1"
-    max="10"
-    value="5"
-    step="1"
-    aria-valuemin="1"
-    aria-valuemax="10"
-    aria-valuenow="5"
-    oninput="outputUpdate(value)">
-  </input>
-</div> */}
+export default reduxForm({ form: 'contact' })(logform);

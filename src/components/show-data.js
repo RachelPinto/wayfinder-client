@@ -50,10 +50,13 @@ export class Showdata extends React.Component {
         <div>
           <h1>My Data</h1>
           {formatted.map((record, i) => {
-              const records = record.symptoms.map((item) => {
-                return (<p key={i}>{item.successNote} {item.symptomNote} {item.level} {item.impact} {item.impactNote}</p>)
+              const records = record.symptoms.map((item, y) => {
+                return (<p key={y*100}> 
+                  {/* {item.successNote} {item.symptomNote} {item.level} {item.impact} {item.impactNote} */}
+                  {item.name} {item.level} {item.impact ? 'true' : 'false'}
+                  </p>)
               })
-              return <p key={i}>{record.formatted} {records}</p>
+              return <div key={i}>{record.formatted} {records}</div>
           })}
           <Link to="/dashboard">
             <button className="btn" type="submit">Home</button>
