@@ -37,7 +37,6 @@ export const authError = error => ({
 // the user data stored in the token
 const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
-    console.log(decodedToken)
     dispatch(setAuthToken(authToken));
     dispatch(authSuccess(decodedToken.user));
     saveAuthToken(authToken);
@@ -82,7 +81,7 @@ export const login = (username, password) => dispatch => {
 export const refreshAuthToken = () => (dispatch, getState) => {
     dispatch(authRequest());
     const authToken = getState().auth.authToken;
-    return fetch(`${API_BASE_URL}/auth/refresh`, {
+    return fetch(`${API_BASE_URL}/refresh`, {
         method: 'POST',
         headers: {
             // Provide our existing token as credentials to get a new one

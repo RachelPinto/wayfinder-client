@@ -34,7 +34,7 @@ export class Symptomarray extends React.Component {
         <p>Click into your buttons to fill out your details for the day. Then, all you have to do is click the "I'm done" button, and you've logged for the day. Great job!  </p>
         <div>
           <Link to="/log-form">
-          {this.props.symptoms.map(symptom => (<button className="btn" onClick={() => this.selectSymptom(symptom)}>{symptom.name}</button>))}
+          {this.props.symptoms.map(symptom => (<button key={symptom.name} className="btn" onClick={() => this.selectSymptom(symptom)}>{symptom.name}</button>))}
           </Link>
           {/* <div>
             <label htmlFor="experienced">Experienced?</label>

@@ -18,7 +18,7 @@ export class Logform extends React.Component {
 
 
   onSubmit(event) {
-    e.preventDefault();
+    event.preventDefault();
     let formData = {
       experience: true,
       level: event.currentTarget.level.value,
@@ -36,8 +36,8 @@ export class Logform extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values) )}>
-
+        {/* <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values) )}> */}
+          <form onSubmit = {e => this.onSubmit(e)}>
           <div>
             <div>
               <h1>{this.props.symptom.name}</h1>
@@ -92,4 +92,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(Logform);
-export default reduxForm({ form: 'contact' })(logform);
+//export default reduxForm({ form: 'contact' })(Logform);

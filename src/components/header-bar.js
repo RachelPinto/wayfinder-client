@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
+import {Link, Redirect} from 'react-router-dom';
 import './styles/header-bar.css';
 
 export class HeaderBar extends React.Component {
@@ -22,7 +23,9 @@ export class HeaderBar extends React.Component {
             <div className="header-bar">
                 <ul>
                     <li>Wayfinder</li>
+                    <Link to="/">
                     <li>{logOutButton}</li>
+                    </Link>
                 </ul>
             </div>
         );
